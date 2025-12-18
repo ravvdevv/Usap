@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Plus, Users } from "lucide-react"
+import { Plus, Users, QrCode } from "lucide-react"
+import { QrScannerModal } from "@/components/ui/qr-scanner-modal"
 
 export default function SetupPage() {
   const [displayName, setDisplayName] = useState("")
@@ -224,6 +225,7 @@ export default function SetupPage() {
             <Label htmlFor="serverCode" className="text-sm font-medium">
               Server Code
             </Label>
+            <div className="flex gap-2">
             <Input
               id="serverCode"
               type="text"
@@ -236,8 +238,14 @@ export default function SetupPage() {
               onKeyPress={handleKeyPress}
               autoFocus
               maxLength={6}
-              className="h-12 text-base font-mono tracking-wider"
+              className="h-12 text-base font-mono tracking-wider flex-1"
             />
+            <QrScannerModal>
+              <Button variant="outline" size="icon" className="h-12 w-12">
+                <QrCode className="h-6 w-6" />
+              </Button>
+            </QrScannerModal>
+            </div>
             {error && <p className="text-sm text-destructive mt-2">{error}</p>}
           </div>
 
