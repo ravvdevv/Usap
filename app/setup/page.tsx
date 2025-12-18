@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Plus, Users, QrCode } from "lucide-react"
 import { QrScannerModal } from "@/components/ui/qr-scanner-modal"
+import { useIsMobile } from "@/hooks/use-is-mobile"
 
 export default function SetupPage() {
   const [displayName, setDisplayName] = useState("")
@@ -19,6 +20,7 @@ export default function SetupPage() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const storedName = localStorage.getItem("usap_display_name")
@@ -240,11 +242,13 @@ export default function SetupPage() {
               maxLength={6}
               className="h-12 text-base font-mono tracking-wider flex-1"
             />
-            <QrScannerModal>
-              <Button variant="outline" size="icon" className="h-12 w-12">
-                <QrCode className="h-6 w-6" />
-              </Button>
-            </QrScannerModal>
+            {isMobile && (
+              <QrScannerModal>
+                <Button variant="outline" size="icon" className="h-12 w-12">
+                  <QrCode className="h-6 w-6" />
+                </Button>
+              </QrScannerModal>
+            )}
             </div>
             {error && <p className="text-sm text-destructive mt-2">{error}</p>}
           </div>
