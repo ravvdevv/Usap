@@ -21,7 +21,14 @@ export function QrScannerModal({ children }: QrScannerModalProps) {
 
   const handleScan = (result: string) => {
     if (result) {
-      router.push(result)
+      try {
+        const url = new URL(result)
+        if (url.origin === window.location.origin) {
+          router.push(url.pathname)
+        }
+      } catch (error) {
+        console.error("Scanned QR code is not a valid URL:", error)
+      }
     }
   }
 
