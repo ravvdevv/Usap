@@ -6,7 +6,8 @@ import { useEffect, useState, useRef, use } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ArrowLeft, Send, Copy, Check } from "lucide-react"
+import { ArrowLeft, Send, Copy, Check, Share } from "lucide-react"
+import { QrCodeModal } from "@/components/ui/qr-code-modal"
 
 type Message = {
   id: string
@@ -200,10 +201,18 @@ export default function ChatPage({ params }: { params: Params }) {
               <p className="text-xs text-muted-foreground mt-1.5 font-mono">{code}</p>
             </div>
           </div>
-          <Button variant="outline" size="sm" onClick={handleCopyCode} className="h-9 gap-2 bg-transparent">
-            {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-            <span className="hidden sm:inline">{copied ? "Copied" : "Copy"}</span>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" onClick={handleCopyCode} className="h-9 gap-2 bg-transparent">
+              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              <span className="hidden sm:inline">{copied ? "Copied" : "Copy"}</span>
+            </Button>
+            <QrCodeModal serverCode={code}>
+              <Button variant="outline" size="sm" className="h-9 gap-2 bg-transparent">
+                <Share className="h-4 w-4" />
+                <span className="hidden sm:inline">Share</span>
+              </Button>
+            </QrCodeModal>
+          </div>
         </div>
       </div>
 
