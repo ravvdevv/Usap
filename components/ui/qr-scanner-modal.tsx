@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { QrScanner } from "@yudiel/react-qr-scanner"
+import { Scanner } from "@yudiel/react-qr-scanner"
 import { useRouter } from "next/navigation"
 
 interface QrScannerModalProps {
@@ -40,7 +40,7 @@ export function QrScannerModal({ children }: QrScannerModalProps) {
           </DialogDescription>
         </DialogHeader>
         <div className="flex items-center justify-center p-4">
-          <QrScanner
+          <Scanner
             onDecode={handleScan}
             onError={handleError}
           />
