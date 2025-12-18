@@ -20,6 +20,7 @@ export function QrScannerModal({ children }: QrScannerModalProps) {
   const router = useRouter()
 
   const handleScan = (result: string) => {
+    console.log("Scanned QR code result:", result)
     if (result) {
       router.push(result)
     }
