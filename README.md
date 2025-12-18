@@ -1,4 +1,4 @@
-# Minimalist Messenger App
+# Usap
 
 A simple Next.js chat application with server-based messaging.
 

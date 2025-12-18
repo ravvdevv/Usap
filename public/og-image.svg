@@ -1,0 +1,8 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <text x="600" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white">USAP</text>
+  <text x="600" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="36" text-anchor="middle" fill="#94A3B8">Minimal Messenger</text>
+  <text x="600" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="24" text-anchor="middle" fill="#64748B">Simple, fast messaging for everyone</text>
+  <rect x="450" y="450" width="300" height="60" rx="8" fill="#3B82F6"/>
+  <text x="600" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">Get Started</text>
+</svg>
